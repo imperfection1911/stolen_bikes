@@ -9,3 +9,5 @@ class Configuration:
         self.config.read(os.path.dirname(os.path.abspath(__file__)) + '/config.ini')
         self.bikepost_url = self.config.get('bikepost', 'url')
         self.user_agent = self.config.get('http', 'user_agent')
+        self.token = self.config.get('telegram', 'token')
+        self.mongo_host = self.config.get('mongo', 'host')
