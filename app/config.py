@@ -11,3 +11,4 @@ class Configuration:
         self.user_agent = self.config.get('http', 'user_agent')
         self.token = self.config.get('telegram', 'token')
         self.mongo_host = self.config.get('mongo', 'host')
+        self.interval = self.config.get('interval', 'time')

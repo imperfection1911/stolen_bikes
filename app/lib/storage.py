@@ -1,4 +1,5 @@
 from pymongo import MongoClient
+
 from config import Configuration
 
 
@@ -24,6 +25,9 @@ class Storage:
 
     def find(self, query):
         return self.collection.find(query)
+
+    def clear(self):
+        self.collection.remove()
 
 
 

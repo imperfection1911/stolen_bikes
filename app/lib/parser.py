@@ -1,4 +1,3 @@
-from config import Configuration
 from lxml import html
 
 
@@ -47,9 +46,10 @@ class Parser:
         info = {}
         for row in info_rows:
             info[row[0].replace('.', '')] = row[1]
-        result = {'title': title,
-                  'image': image,
-                  'description': description,
-                  'contact': contact,
-                  'details': info}
+        result = {'заголовок': title,
+                  'фотография': image,
+                  'описание': description,
+                  'контакт': contact}
+        for row in info:
+            result[row] = info[row]
         return result

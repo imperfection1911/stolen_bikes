@@ -1,6 +1,6 @@
 import unittest
-from app.page import PageLoader
-from app.parser import Parser
+from lib.page import PageLoader
+from lib.parser import Parser
 
 
 class Test(unittest.TestCase):
@@ -17,7 +17,10 @@ class Test(unittest.TestCase):
         response = page.get_page()
         parser = Parser(response.text)
         links = parser.get_stolen_bikes()
-        print(links)
+        result = False
+        if len(links) > 0:
+            result = True
+        self.assertTrue(result)
 
     # проверка получения
     def test_get_pages(self):
@@ -25,7 +28,10 @@ class Test(unittest.TestCase):
         response = page.get_page()
         parser = Parser(response.text)
         links = parser.get_pages()
-        print(links)
+        result = False
+        if len(links) > 0:
+            result = True
+        self.assertTrue(result)
 
     def test_parse_bike_page(self):
         page = PageLoader()
@@ -35,7 +41,10 @@ class Test(unittest.TestCase):
         response = page.get_page_by_url(links[0]).text
         parser = Parser(response)
         bike_info = parser.parse_bike_page()
-        print(bike_info)
+        result = False
+        if len(bike_info) > 0:
+            result = True
+        self.assertTrue(result)
 
 if __name__ == '__main__':
     unittest.main()
